@@ -32,6 +32,15 @@ def encoder(password):
 
     return str_encode_password
 
+#This is Josie as Decoder
+def password_decoder(str_encode_password):
+    decoded_password = ""
+    for digit in str_encode_password:
+        decoded_digit = str((int(digit) - 3) % 10)
+        decoded_password += decoded_digit
+    return decoded_password
+
+
 #menue loop
 while True:
 
@@ -54,7 +63,8 @@ while True:
 
     elif option == '2':
 
-        pass
+        decoded_password = password_decoder(encoded_password)
+        print(f"The encoded password is {encoded_password}, and the original password is {decoded_password}.")
 
     elif option == '3':
         break
